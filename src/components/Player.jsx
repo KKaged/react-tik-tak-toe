@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Player({ name, symbol, nameTag = 'span' }) {
+export default function Player({ name, symbol, }) {
     const [isEditing, setIsEditing] = useState(false)
     const handleEdit = () => {
       setIsEditing(true)
