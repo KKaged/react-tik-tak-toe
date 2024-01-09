@@ -1,14 +1,19 @@
-import TikTak from '../public/game-logo.png'
+import Player from "./components/Player"
 
 function App() {
   
 
   return (
-    <header>
-      <img src={TikTak} alt="React Logo" />
-      <h1>Tic-Tac-Toe</h1>
-    </header>
-  )
+<main>
+  <div id='game-container'>
+<ol id='players'>
+  <Player name='Max' symbol='X'/>
+  <Player name='Checo' symbol='O' />
+</ol>
+    GAME BOARD
+  </div>
+  LOG INFO
+</main>  )
 }
 
 export default App
