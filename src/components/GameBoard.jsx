@@ -6,14 +6,15 @@ const initialGameBoard = [
     [null, null, null]
 ]
 
-export default function GameBoard() {
+export default function GameBoard({onSelectSquare, activePlayerSymbol}) {
 const [gameBoard, setGameBoard] = useState(initialGameBoard)
 function handleCellClick(rowIndex, colIndex) {
 setGameBoard((prevgameBoard) => {
     const newgameBoard = [...prevgameBoard.map(innerArray => [...innerArray])] // map copies the nested arrays and spreads them into a new array
-    newgameBoard[rowIndex][colIndex] = 'X'
+    newgameBoard[rowIndex][colIndex] = activePlayerSymbol
     return newgameBoard
 })
+onSelectSquare()
 }
 
     return (
