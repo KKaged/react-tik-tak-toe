@@ -9,6 +9,7 @@ function App() {
 
   function handleSelectSquare(rowIndex, colIndex) {
     setActivePlayer((curActivePlayer) => (curActivePlayer === "X" ? "O" : "X"));
+    console.log(activePlayer);
     setGameTurns((prevTurns) => {
       let currentPlayer = "X";
 
@@ -21,6 +22,8 @@ function App() {
         { square: { row: rowIndex, col: colIndex }, player: currentPlayer },
         ...prevTurns,
       ];
+
+      console.log(updatedTurns);
       return updatedTurns;
     });
   }
