@@ -8,7 +8,7 @@ function App() {
   const [activePlayer, setActivePlayer] = useState("X");
 
   function handleSelectSquare(rowIndex, colIndex) {
-    setActivePlayer((curActivePlayer) => (curActivePlayer === "X" ? "O" : "X"));
+    setActivePlayer((curActivePlayer) => (curActivePlayer === "X" ? "O" : "X")); //Check on the old state and change it to the opposite by checking if its true or not
     console.log(activePlayer);
     setGameTurns((prevTurns) => {
       let currentPlayer = "X";
@@ -44,7 +44,14 @@ function App() {
         </ol>
         <GameBoard onSelectSquare={handleSelectSquare} turns={gameTurns} />
       </div>
-      <Log />
+      <Log>
+        {/* {gameTurns.map((turn, index) => (
+          <li key={index}>
+            {turn.player} played at row {turn.square.row}, column{" "}
+            {turn.square.col}
+          </li>
+        ))} */}
+      </Log>
     </main>
   );
 }
