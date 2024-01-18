@@ -8,7 +8,7 @@ export default function GameBoard({ onSelectSquare, turns }) {
   let gameBoard = initialGameBoard;
 
   for (const turn of turns) {
-    //loop through the turns array and update the gameBoard
+    //creates a dynamic array of turns and updates the gameboard, grows with every click (turn)
     const { player, square } = turn;
     const { row, col } = square;
     gameBoard[row][col] = player;

@@ -4,7 +4,7 @@ import GameBoard from "./components/GameBoard";
 import Log from "./components/Log";
 
 function App() {
-  const [gameTurns, setGameTurns] = useState([]);
+  const [gameTurns, setGameTurns] = useState([]); //manages the array of turns
   const [activePlayer, setActivePlayer] = useState("X");
 
   function handleSelectSquare(rowIndex, colIndex) {
