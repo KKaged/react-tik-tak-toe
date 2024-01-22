@@ -14,6 +14,8 @@ function App() {
       let currentPlayer = "X";
 
       if (prevTurns.length > 0 && prevTurns[0].player === "X") {
+        //Checks if theres any turns, if false keeps the current player as X and doesnt change it
+        //if true, checks if the first turn is X, if true, changes the current player to O
         currentPlayer = "O";
       } else {
         currentPlayer = "X";
@@ -24,6 +26,7 @@ function App() {
       ];
 
       console.log(updatedTurns);
+
       return updatedTurns;
     });
   }
@@ -44,14 +47,7 @@ function App() {
         </ol>
         <GameBoard onSelectSquare={handleSelectSquare} turns={gameTurns} />
       </div>
-      <Log>
-        {/* {gameTurns.map((turn, index) => (
-          <li key={index}>
-            {turn.player} played at row {turn.square.row}, column{" "}
-            {turn.square.col}
-          </li>
-        ))} */}
-      </Log>
+      <Log></Log>
     </main>
   );
 }

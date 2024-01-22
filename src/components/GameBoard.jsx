@@ -5,13 +5,15 @@ const initialGameBoard = [
 ];
 
 export default function GameBoard({ onSelectSquare, turns }) {
+  //turns is gameTurns, contains the array of turns
   let gameBoard = initialGameBoard;
 
   for (const turn of turns) {
     //creates a dynamic array of turns and updates the gameboard, grows with every click (turn)
-    const { player, square } = turn;
+    const { player, square } = turn; //pulls the player and square from the current iteration of the turn
     const { row, col } = square;
-    gameBoard[row][col] = player;
+
+    gameBoard[row][col] = player; //updates the gameboard with the player symbol
   }
   // const [gameBoard, setGameBoard] = useState(initialGameBoard)
   // function handleCellClick(rowIndex, colIndex) {
