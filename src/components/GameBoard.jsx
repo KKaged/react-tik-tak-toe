@@ -5,7 +5,7 @@ const initialGameBoard = [
 ];
 
 export default function GameBoard({ onSelectSquare, turns }) {
-  //turns is gameTurns, contains the array of turns
+  //turns is gameTurns, contains the array of turns (deriving state from props)
   let gameBoard = initialGameBoard;
 
   for (const turn of turns) {

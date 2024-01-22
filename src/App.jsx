@@ -22,7 +22,7 @@ function App() {
       }
       const updatedTurns = [
         { square: { row: rowIndex, col: colIndex }, player: currentPlayer },
-        ...prevTurns,
+        ...prevTurns, //derived state
       ];
 
       console.log(updatedTurns);
@@ -47,7 +47,7 @@ function App() {
         </ol>
         <GameBoard onSelectSquare={handleSelectSquare} turns={gameTurns} />
       </div>
-      <Log></Log>
+      <Log turns={gameTurns} />
     </main>
   );
 }
