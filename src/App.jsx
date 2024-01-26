@@ -22,7 +22,7 @@ function App() {
       }
       const updatedTurns = [
         { square: { row: rowIndex, col: colIndex }, player: currentPlayer },
-        ...prevTurns, //derived state
+        ...prevTurns, //derived state - takes the previous turns and adds the new turn to the array
       ];
 
       console.log(updatedTurns);
