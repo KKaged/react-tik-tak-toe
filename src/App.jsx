@@ -3,23 +3,29 @@ import Player from "./components/Player";
 import GameBoard from "./components/GameBoard";
 import Log from "./components/Log";
 
+function deriveActivePlayer(gameTurns) {
+  let currentPlayer = "X";
+
+  if (gameTurns.length > 0 && gameTurns[0].player === "X") {
+    //Checks if theres any turns, if false keeps the current player as X and doesnt change it
+    //if true, checks if the first turn is X, if true, changes the current player to O
+    currentPlayer = "O";
+  }
+  return currentPlayer;
+}
+
 function App() {
   const [gameTurns, setGameTurns] = useState([]); //manages the array of turns
-  const [activePlayer, setActivePlayer] = useState("X");
+  // const [activePlayer, setActivePlayer] = useState("X");
+
+  const activePlayer = deriveActivePlayer(gameTurns);
 
   function handleSelectSquare(rowIndex, colIndex) {
-    setActivePlayer((curActivePlayer) => (curActivePlayer === "X" ? "O" : "X")); //Check on the old state and change it to the opposite by checking if its true or not
+    // setActivePlayer((curActivePlayer) => (curActivePlayer === "X" ? "O" : "X")); //Check on the old state and change it to the opposite by checking if its true or not
     console.log(activePlayer);
     setGameTurns((prevTurns) => {
-      let currentPlayer = "X";
+      const currentPlayer = deriveActivePlayer(prevTurns);
 
-      if (prevTurns.length > 0 && prevTurns[0].player === "X") {
-        //Checks if theres any turns, if false keeps the current player as X and doesnt change it
-        //if true, checks if the first turn is X, if true, changes the current player to O
-        currentPlayer = "O";
-      } else {
-        currentPlayer = "X";
-      }
       const updatedTurns = [
         { square: { row: rowIndex, col: colIndex }, player: currentPlayer },
         ...prevTurns, //derived state - takes the previous turns and adds the new turn to the array
