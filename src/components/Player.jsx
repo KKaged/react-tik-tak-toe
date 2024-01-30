@@ -1,10 +1,18 @@
 import { useState } from "react";
 
-export default function Player({ InitialName, symbol, isActive }) {
+export default function Player({
+  InitialName,
+  symbol,
+  isActive,
+  onChangeName,
+}) {
   const [playerName, setPlayerName] = useState(InitialName);
   const [isEditing, setIsEditing] = useState(false);
   const handleEditClick = () => {
     setIsEditing((editing) => !editing); // easy way to toggle a boolean
+    if (isEditing) {
+      onChangeName(symbol, playerName);
+    }
   };
   const handleNameChange = (event) => {
     setPlayerName(event.target.value); //target is the input element, therefor we can get/change the value of the input
